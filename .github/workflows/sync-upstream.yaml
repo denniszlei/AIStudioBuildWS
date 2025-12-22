@@ -1,0 +1,26 @@
+name: Sync Upstream
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # 每天 UTC 时间 0:00 (北京时间 8:00) 自动检查更新
+  workflow_dispatch:      # 允许手动点击按钮触发同步
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout target repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Sync upstream changes
+        id: sync
+        uses: aieri/pull-upstream@v1.0.1
+        with:
+          upstream: hkfires/AIStudioBuildWS    # <--- 修改这里
+          branch: main                    # <--- 修改为上游的主分支名
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      # 这里的逻辑是：如果检测到有新代码并成功合并，
+      # 下面的 push 操作会触发你之前写的 Docker Workflow
