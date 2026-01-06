@@ -1,3 +1,6 @@
+
+利用github action, 自动拉取并编译最新版的docker image，both amd64 and arm64。
+
 > **请注意：** 本教程的部署方案需配合 `CLIProxyAPI` 使用。在开始之前，请确保你已有一个正在运行的 `CLIProxyAPI` 实例。
 
 CLIProxyAPI 自 v6.3.x 版本起，开始支持通过 WebSocket 方式接入 AI Provider，并首个支持了 AIStudio。
