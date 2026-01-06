@@ -1,5 +1,5 @@
 
-利用github action, 自动拉取并编译最新版的docker image，both amd64 and arm64。
+## 利用github action, 自动拉取并编译最新版的docker image，both amd64 and arm64。
 
 > **请注意：** 本教程的部署方案需配合 `CLIProxyAPI` 使用。在开始之前，请确保你已有一个正在运行的 `CLIProxyAPI` 实例。
 
